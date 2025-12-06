@@ -1,17 +1,13 @@
 const {StatusCodes} = require('http-status-codes');
+const {ErrorResponse} = require('../utils/common')
 
 function validateCreateRequest(req,res,next){
     if(!req.body || !req.body.modelNumber ){
+        ErrorResponse.message = 'Something went wrong while creating airplane';
+        ErrorResponse.error = {explanation :'Model number not found in incoming request'};
         return res  
                 .status(StatusCodes.BAD_REQUEST)
-                .json({
-                    success: false,
-                    message: "Something went wrong while validating request",
-                    data: {},
-                    error: {
-                    explanation: "Model Number not found in incoming request"
-                }
-                })
+                .json(ErrorResponse);
     }
     //controller will be the next middleware
     next();
