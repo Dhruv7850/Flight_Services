@@ -45,7 +45,8 @@ class FlightRepository extends CrudRepository {
 
   async getAllFlights(filter, sort) {
     //filter object comes from service layer as example {departureId: 'DEL', price: {[Op.gte]:400}}
-
+    console.log("DEBUG FLIGHT ATTRIBUTES:", Object.keys(Flight.rawAttributes));
+    
     const response = await Flight.findAll({
       where: filter, //its an object
       order: sort,

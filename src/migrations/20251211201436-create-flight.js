@@ -9,11 +9,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      flight_number: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      flightNumber: {
+  type: Sequelize.STRING,
+  allowNull: false,
       },
-      airplane_id: {
+      airplaneId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -22,7 +22,7 @@ module.exports = {
         },
         onDelete: "CASCADE",
       },
-      departure_airport_id: {
+      departureAirportId: {
         type: Sequelize.STRING,
         allowNull: false,
         references: {
@@ -31,7 +31,7 @@ module.exports = {
         },
         onDelete: "CASCADE",
       },
-      arrival_airport_id: {
+      arrivalAirportId: {
         type: Sequelize.STRING,
         allowNull: false,
         references: {
@@ -40,11 +40,11 @@ module.exports = {
         },
         onDelete: "CASCADE",
       },
-      arrival_time: {
+      arrivalTime: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      departure_time: {
+      departureTime: {
         type: Sequelize.DATE,
         allowNull: false,
       },
@@ -52,10 +52,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      boarding_gate: {
+      boardingGate: {
         type: Sequelize.STRING,
       },
-      total_seats: {
+      totalSeats: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
