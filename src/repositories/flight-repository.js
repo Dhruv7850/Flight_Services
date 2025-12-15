@@ -63,9 +63,9 @@ class FlightRepository extends CrudRepository {
           required: true,
           as: "departureAirport",
           //'On' not req since join condition fixed in association by targetKey. By default On does on key=id
-          // on:{
-          //     col1: Sequelize.where(Sequelize.col("Flight.departureAirportId"),"=",Sequelize.col("departure_airport.code"))
-          // }
+          on:{
+              col1: Sequelize.where(Sequelize.col("Flight.departureAirportId"),"=",Sequelize.col("departure_airport.code"))
+          },
           include: {
             model: City,
             required: true,
@@ -77,9 +77,9 @@ class FlightRepository extends CrudRepository {
           required: true,
           as: "arrivalAirport",
           //'On' not req since join condition fixed in association by targetKey. By default On does on key=id. If using on, rmeove targetKey from models.
-          // on:{
-          //     col1: Sequelize.where(Sequelize.col("Flight.arrivalAirportId"),"=",Sequelize.col("arrival_airport.code"))
-          // }
+          on:{
+              col1: Sequelize.where(Sequelize.col("Flight.arrivalAirportId"),"=",Sequelize.col("arrival_airport.code"))
+          },
           include: {
             model: City,
             required: true,
